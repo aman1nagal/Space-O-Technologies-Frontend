@@ -20,7 +20,7 @@ const ProjectList = () => {
   const fetchProjects = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.29.118:3000/api/projects"
+        "https://kafka-x70f.onrender.com/api/projects"
       );
       setProjects(response.data);
     } catch (error) {
@@ -32,7 +32,7 @@ const ProjectList = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.29.118:3000/api/projects",
+        "https://kafka-x70f.onrender.com/api/projects",
         newProject
       );
       setProjects([...projects, response.data]);

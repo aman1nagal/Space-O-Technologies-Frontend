@@ -18,7 +18,7 @@ const TaskAssignment = () => {
   const fetchProjects = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.29.118:3000/api/getAllTask"
+        "https://kafka-x70f.onrender.com/api/getAllTask"
       );
       setTasks(response.data);
     } catch (error) {
@@ -30,7 +30,7 @@ const TaskAssignment = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        `http://192.168.29.118:3000/api/tasks/assign`,
+        `https://kafka-x70f.onrender.com/api/tasks/assign`,
         {
           taskId: selectTask,
           assignedTo: assignedTo,
@@ -47,11 +47,19 @@ const TaskAssignment = () => {
   console.log(selectTask);
   return (
     <>
-    <span className="flex items-center gap-3 float-right w-fit">
-        <button type="button" className="border px-3 py-1 rounded" onClick={() => router.push("/project")}>
+      <span className="flex items-center gap-3 float-right w-fit">
+        <button
+          type="button"
+          className="border px-3 py-1 rounded"
+          onClick={() => router.push("/project")}
+        >
           Add Projects
         </button>
-        <button type="button" className="border px-3 py-1 rounded" onClick={() => router.push("/tasklist")}>
+        <button
+          type="button"
+          className="border px-3 py-1 rounded"
+          onClick={() => router.push("/tasklist")}
+        >
           Add Task
         </button>
       </span>
@@ -71,8 +79,8 @@ const TaskAssignment = () => {
               onChange={(e: any) => setSelectTask(e.target.value)}
               className="block appearance-none w-full bg-white border border-gray-400 hover:border-gray-500 px-4 py-2 pr-8 rounded shadow leading-tight focus:outline-none focus:shadow-outline"
             >
-              {tasks?.map((items) => (
-                <option value={items.id}>{items.title}</option>
+              {tasks?.map((items, i) => (
+                <option key={i} value={items.id}>{items.title}</option>
               ))}
             </select>
           </div>

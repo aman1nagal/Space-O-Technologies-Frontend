@@ -33,7 +33,7 @@ const TaskList = () => {
   const fetchTaskbasedOnProduct = async () => {
     try {
       const response = await axios.get(
-        `http://192.168.29.118:3000/api/projects/${selectedProjectDropDown}/tasks`
+        `https://kafka-x70f.onrender.com/api/projects/${selectedProjectDropDown}/tasks`
       );
       setTaskBasedProject(response.data);
     } catch (error) {
@@ -44,7 +44,7 @@ const TaskList = () => {
   const fetchProjects = async () => {
     try {
       const response = await axios.get(
-        "http://192.168.29.118:3000/api/projects"
+        "https://kafka-x70f.onrender.com/api/projects"
       );
       setProjects(response.data);
     } catch (error) {
@@ -68,7 +68,7 @@ const TaskList = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://192.168.29.118:3000/api/tasks",
+        "https://kafka-x70f.onrender.com/api/tasks",
         {
           ...newTask,
           projectId: selectedProject,
